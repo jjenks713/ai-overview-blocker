@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      body {
+        width: 220px;
+        font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+        margin: 0;
+        padding: 16px;
+        color: #202124;
+      }
+      h1 {
+        font-size: 14px;
+        font-weight: 600;
+        margin: 0 0 12px;
+      }
+      .row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .switch {
+        position: relative;
+        width: 40px;
+        height: 22px;
+        flex-shrink: 0;
+      }
+      .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        inset: 0;
+        background-color: #ccc;
+        border-radius: 22px;
+        transition: 0.15s;
+      }
+      .slider::before {
+        content: "";
+        position: absolute;
+        height: 16px;
+        width: 16px;
+        left: 3px;
+        bottom: 3px;
+        background-color: white;
+        border-radius: 50%;
+        transition: 0.15s;
+      }
+      input:checked + .slider {
+        background-color: #1a73e8;
+      }
+      input:checked + .slider::before {
+        transform: translateX(18px);
+      }
+      p.status {
+        margin: 10px 0 0;
+        font-size: 12px;
+        color: #5f6368;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>No AI Overview</h1>
+    <div class="row">
+      <span id="label">Hide AI Overview</span>
+      <label class="switch">
+        <input type="checkbox" id="toggle" />
+        <span class="slider"></span>
+      </label>
+    </div>
+    <p class="status" id="status">Reload any open Google search tabs to apply.</p>
+    <script src="popup.js"></script>
+  </body>
+</html>
