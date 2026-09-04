@@ -10,7 +10,7 @@ toggle.addEventListener('change', async () => {
   const enabled = toggle.checked;
   await chrome.storage.sync.set({ [STORAGE_KEY]: enabled });
 
-  const tabs = await chrome.tabs.query({ url: ['https://www.google.com/search*', 'https://www.google.co.uk/search*'] });
+  const tabs = await chrome.tabs.query({ url: ['https://www.google.*/search*', 'https://www.google.co.*/search*', 'https://www.google.com.*/search*'] });
   for (const tab of tabs) {
     chrome.tabs.sendMessage(tab.id, { type: 'TOGGLE_ENABLED', enabled }, () => {
       // Swallow errors from tabs without the content script (e.g. not yet loaded).

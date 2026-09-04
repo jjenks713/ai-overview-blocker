@@ -1,9 +1,9 @@
 {
   "manifest_version": 3,
-  "name": "No AI Overview for Google",
+  "name": "Remove AI Overview for Google Search",
   "version": "1.0.0",
   "description": "Removes the AI Overview box from Google Search results. Toggle on/off anytime.",
-  "permissions": ["storage"],
+  "permissions": ["storage", "tabs"],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
@@ -19,7 +19,39 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://www.google.com/search*", "https://www.google.co.uk/search*"],
+      "matches": [
+        "https://www.google.com/search*",
+        "https://www.google.co.uk/search*",
+        "https://www.google.ca/search*",
+        "https://www.google.com.au/search*",
+        "https://www.google.co.in/search*",
+        "https://www.google.de/search*",
+        "https://www.google.fr/search*",
+        "https://www.google.it/search*",
+        "https://www.google.es/search*",
+        "https://www.google.com.br/search*",
+        "https://www.google.co.jp/search*",
+        "https://www.google.nl/search*",
+        "https://www.google.pl/search*",
+        "https://www.google.se/search*",
+        "https://www.google.no/search*",
+        "https://www.google.dk/search*",
+        "https://www.google.fi/search*",
+        "https://www.google.ch/search*",
+        "https://www.google.at/search*",
+        "https://www.google.be/search*",
+        "https://www.google.pt/search*",
+        "https://www.google.ie/search*",
+        "https://www.google.com.mx/search*",
+        "https://www.google.com.ar/search*",
+        "https://www.google.co.nz/search*",
+        "https://www.google.co.za/search*",
+        "https://www.google.com.sg/search*",
+        "https://www.google.com.tw/search*",
+        "https://www.google.com.hk/search*",
+        "https://www.google.co.kr/search*",
+        "https://www.google.gr/search*"
+      ],
       "js": ["content.js"],
       "run_at": "document_start"
     }
